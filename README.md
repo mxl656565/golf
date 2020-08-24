@@ -14,7 +14,7 @@
 
 + 自动生成完实体类和dao层、xml代码后，想要测试接口，在mapper接口中使用@select注解接口可以使用，但是使用xml映射文件中的sql，报绑定异常的错误，代码是通过mybatis genrator自动生成xml映射文件和mapper接口应该没有问题，那错误的就是无法读取xml配置文件，看了一下配置文件发现没有问题，看了半天网上如何写xml映射文件的配置但是还是报绑定异常，之后发现将xml配置文件在resources目录下创建和mapper接口相同的路径即可不需要配置xml配置文件的路径，甚至不需要配置mapper接口上的@Mapper注解。
 
-![mapper接口映射xml配置文件](https://github.com/mxl656565/folg/blob/master/src/main/resources/image/mapper%E6%98%A0%E5%B0%84xml%E6%96%87%E4%BB%B6.png)
+![mapper接口映射xml配置文件](https://github.com/mxl656565/golf/blob/master/src/main/resources/image/mapper%E6%98%A0%E5%B0%84xml%E6%96%87%E4%BB%B6.png)
 
 
 + 加入swagger依赖生成api接口文档，但是需要一个一个给model字段加入注解很不方便，就想借鉴mall项目的方法，通过mybatis generator生成代码自定义model实体类字段的注解，给每个字段上添加@apimodelproperty,并且注解中的value值从数据库中读取注释，之后就加入自定义的注释类需要在generator的xml文件中配置，还需要写通过java实现的generator生成代码，之后就可以自动生成model字段上的自定义注解.
