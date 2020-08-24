@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/golf?serverTimezone=UTC
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  flyway:
+    baseline-on-migrate: true
+    #是否开启flyway
+    enabled: true
+  redis:
+    host: 127.0.0.1
+    database: 0
+    port: 6379
+  cache:
+    cache-names: golf_cache
+    redis:
+      key-prefix: 0000-->
+
+#自定义redis key
+redis:
+  key:
+    prefix:
+      customer: "customer key"
+    expire:
+      customer: 120 #超时时间
